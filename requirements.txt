@@ -1,0 +1,25 @@
+# The Polyglot's Shorthand — PS 4
+#
+# Verified against the imports in polyglot_shorthand_pipeline.ipynb and
+# inference.py. Nothing here is unused, and nothing used is missing.
+#
+#   pip install -r requirements.txt
+#
+# On Kaggle all of these are preinstalled; the file is for local or CI runs.
+# Reference environment: Python 3.11, torch 2.10.0+cu128, Tesla T4.
+
+# --- training + evaluation (the notebook) ---
+torch>=2.1            # 2.3+ preferred: torch.amp.GradScaler, else it falls back
+tokenizers>=0.15      # byte-level BPE training
+numpy>=1.24
+scikit-learn>=1.3     # accuracy / F1 / classification_report / confusion_matrix
+matplotlib>=3.7       # results.png
+
+# --- inference only ---
+# src/inference.py needs just torch and tokenizers from the list above.
+# For a serving image, install those two and skip the rest.
+
+# --- deliberately absent ---
+# transformers      not used; the tokenizer is trained and loaded via `tokenizers`
+# pandas            not used; parsing is stdlib csv and plain file reads
+# datasets          not used; corpora are fetched over urllib and parsed directly
