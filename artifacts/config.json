@@ -1,0 +1,35 @@
+{
+  "seed": 42,
+  "use_sent": true,
+  "use_lid": true,
+  "max_len": 96,
+  "collapse_urls_mentions": true,
+  "augment_drift_p": 0.3,
+  "augment_drift_strength": 1,
+  "vocab_size": 16000,
+  "skeleton_buckets": 8192,
+  "d_model": 384,
+  "n_layers": 6,
+  "n_heads": 6,
+  "d_ff": 1152,
+  "dropout": 0.1,
+  "mlm_epochs": 14,
+  "mlm_bs": 256,
+  "mlm_lr": 0.0003,
+  "mask_prob": 0.15,
+  "ft_epochs": 6,
+  "ft_bs": 64,
+  "ft_lr": 0.0001,
+  "task_weights": [
+    [
+      "sent",
+      1.0
+    ],
+    [
+      "lid",
+      0.5
+    ]
+  ],
+  "amp": true,
+  "out_dir": "/kaggle/working/polyglot"
+}
